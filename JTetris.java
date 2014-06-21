@@ -2,10 +2,12 @@
 package tetris;
 
 import java.awt.*;
+
 import javax.swing.*;
 
 import java.util.*;
 import java.awt.event.*;
+
 import javax.swing.event.*;
 
 import java.awt.Toolkit;
@@ -37,6 +39,7 @@ import java.awt.Toolkit;
  the piece in its new position.
 */
 
+@SuppressWarnings("serial")
 public class JTetris extends JComponent {
 	// size of the board in blocks
 	public static final int WIDTH = 10;
@@ -265,8 +268,6 @@ public class JTetris extends JComponent {
 	*/
 	public int setCurrent(Piece piece, int x, int y) {
 		int result = board.place(piece, x, y);
-		System.out.println("current" + result);
-		System.out.println(board.toString());
 		
 		if (result <= Board.PLACE_ROW_FILLED) { // SUCESS
 
@@ -324,8 +325,6 @@ public class JTetris extends JComponent {
 		int px = (board.getWidth() - piece.getWidth())/2;
 		int py = board.getHeight() - piece.getHeight();
 		
-		System.out.println("px" + px);
-		System.out.println("py" + py);
 		
 		// add the new piece to be in play
 		int result = setCurrent(piece, px, py);
@@ -482,7 +481,6 @@ public class JTetris extends JComponent {
 			// Otherwise add a new piece and keep playing
 			else {
 				addNewPiece();
-				System.out.println("Hello");
 			}
 		}
 		
@@ -577,7 +575,6 @@ public class JTetris extends JComponent {
 		final int dx = Math.round(dX()-2);
 		final int dy = Math.round(dY()-2);
 		final int bWidth = board.getWidth();
-		System.out.println("The width of the board is: " + bWidth);
 
 		int x, y;
 		// Loop through and draw all the blocks
@@ -595,7 +592,6 @@ public class JTetris extends JComponent {
 			
 			// draw from 0 up to the col height
 			final int yHeight = board.getColumnHeight(x);
-			//System.out.println("The height of column " + x +" is " + yHeight);
 			for (y=0; y<yHeight; y++) {
 				if (board.getGrid(x, y)) {
 					boolean filled = (board.getRowWidth(y)==bWidth);

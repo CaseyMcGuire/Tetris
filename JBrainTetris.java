@@ -11,6 +11,7 @@ import javax.swing.JSlider;
 import javax.swing.UIManager;
 
 
+@SuppressWarnings("serial")
 public class JBrainTetris extends JTetris{
 	
 	private Brain brain;	//created per the specs
