@@ -106,7 +106,7 @@ public class JBrainTetris extends JTetris{
 			}
 			
 			if(worstPiece==null) 	return super.pickNextPiece();
-			else					return worstPiece;
+			else			return worstPiece;
 		}
 		
 		
@@ -133,8 +133,8 @@ public class JBrainTetris extends JTetris{
 			
 			if(move!=null){
 				if(!currentPiece.equals(move.piece))	tick(ROTATE);
-				else if(move.x>currentX)				tick(RIGHT);
-				else if(move.x<currentX) 				tick(LEFT);
+				else if(move.x>currentX)		tick(RIGHT);
+				else if(move.x<currentX) 		tick(LEFT);
 				else if(!animateFalling.isSelected()&&move.y<currentY){
 					verb = DROP;
 				}
